@@ -1,0 +1,73 @@
+﻿<Window x:Class="ck5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ck5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="589" Width="800">
+    <Border Background="LightGray" BorderBrush="Gray" BorderThickness="10">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource lableStyle}">MaNV: </Label>
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource lableStyle}">HoTen:</Label>
+            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource lableStyle}">NgaySinh:</Label>
+            <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource lableStyle}">GioiTinh</Label>
+            <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource lableStyle}">NgoaiNgu</Label>
+            <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource lableStyle}">PhongBan</Label>
+
+            <TextBox Name="MaNV" Grid.Row="0" Grid.Column="1" Style="{StaticResource inputStyle}"></TextBox>
+            <TextBox Name="HoTen" Grid.Row="1" Grid.Column="1" Style="{StaticResource inputStyle}"></TextBox>
+
+            <DatePicker Name="NgaySinh" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="150" Height="30"></DatePicker>
+
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+                <RadioButton IsChecked="True" Name="Nam" GroupName="gt" Style="{StaticResource radioStyle}">Nam</RadioButton>
+                <RadioButton Name="Nu" GroupName="gt" Style="{StaticResource radioStyle}">Nu</RadioButton>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+                <CheckBox Name="TiengAnh" Style="{StaticResource checkboxStyle}">Tieng Anh</CheckBox>
+                <CheckBox Name="TiengTrung" Style="{StaticResource checkboxStyle}">Tieng Trung</CheckBox>
+                <CheckBox Name="TiengPhap" Style="{StaticResource checkboxStyle}">Tieng Phap</CheckBox>
+            </StackPanel>
+
+            <ComboBox Name="CbbPhongBan" Width="150" Height="30" Grid.Row="5" Grid.Column="1"></ComboBox>
+
+            <DataGrid Name="dtgNhanVien" ColumnWidth="*" Margin="10" AutoGenerateColumns="False" Height="100" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="0" SelectionChanged="dtgNhanVien_SelectionChanged" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="MaNV" Binding="{Binding MaNv}"/>
+                    <DataGridTextColumn Header="HoTen" Binding="{Binding HoTen}"/>
+                    <DataGridTextColumn Header="NgaySinh" Binding="{Binding NgaySinh}"/>
+                    <DataGridTextColumn Header="GioiTinh" Binding="{Binding Gioitinh}"/>
+                    <DataGridTextColumn Header="NgaoiNgu" Binding="{Binding NgoaiNgu}"/>
+                    <DataGridTextColumn Header="PhongBan" Binding="{Binding TenPhongBan}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="0">
+                <Button Style="{StaticResource btnStyle}" Template="{StaticResource btnTemplate}" Click="Button_Click">Them</Button>
+                <Button Style="{StaticResource btnStyle}" Click="Button_Click_2">Tim</Button>
+                <Button Style="{StaticResource btnStyle}" Click="Button_Click_1">Xoa</Button>
+                <Button Style="{StaticResource btnStyle}" Click="Button_Click_3">Sua</Button>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+</Window>
